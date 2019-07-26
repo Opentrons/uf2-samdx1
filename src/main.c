@@ -165,7 +165,9 @@ int main(void) {
     delay(15);
 #endif
     led_init();
-
+    fans_disable();
+    peltiers_disable();
+    
     logmsg("Start");
     assert((uint32_t)&_etext < APP_START_ADDRESS);
     // bossac writes at 0x20005000

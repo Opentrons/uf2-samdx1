@@ -161,6 +161,22 @@ void led_init() {
 #endif
 }
 
+void fans_disable()
+{
+#if defined(FAN_SINK_ENABLE_PIN)
+    PINOP(FAN_SINK_ENABLE_PIN, DIRSET);
+    PINOP(FAN_SINK_ENABLE_PIN, OUTCLR);
+#endif
+}
+
+void peltiers_disable()
+{
+#if defined(PELTIERS_EN_PIN)
+    PINOP(PELTIERS_EN_PIN, DIRSET);
+    PINOP(PELTIERS_EN_PIN, OUTCLR);
+#endif 
+}
+
 #if defined(BOARD_RGBLED_CLOCK_PIN)
 void write_apa_byte(uint8_t x) {
     for (uint8_t i = 0x80; i != 0; i >>= 1) {
