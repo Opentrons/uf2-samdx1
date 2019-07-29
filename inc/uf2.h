@@ -269,6 +269,8 @@ void system_init(void);
 void led_tick(void);
 void led_signal(void);
 void led_init(void);
+void fans_disable(void);
+void peltiers_disable(void);
 void RGBLED_set_color(uint32_t color);
 
 // Not all targets have a LED
